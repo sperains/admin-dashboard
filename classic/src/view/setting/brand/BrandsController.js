@@ -22,12 +22,35 @@ Ext.define('Admin.view.setting.brand.BrandsController', {
     },
 
     onAddBrandSubmit : function(btn){
-        var form = btn.up('form');
+        /*var form = btn.up('form');
         var rec = form.getForm().getValues();
+        console.log(form.getForm().getValues());
         var brandlist = Ext.ComponentQuery.query('brandlist')[0];
         brandlist.getStore().add(rec);
+
+
         var win = form.up('window');
-        win.close();
+        win.close();*/
+
+        var form = btn.up('form').getForm();
+        
+            if(form.isValid()){
+                
+                /*form.submit({
+                    url: 'uploadImg',
+                    waitMsg: 'Uploading your photo...',
+                    success: function(form, action) {
+                        document.getElementById('imageshow').innerHTML = '<img style="width:150px;height:150px" src="' + 'http://bj-evetime.oss-cn-shenzhen.aliyuncs.com/userimage/logo.png' + '"/>';
+                    }
+                });*/
+            }
+    },
+
+    onDisplayImgBtnClick : function(btn){
+        var form = btn.up('form').getForm();
+        var box = btn.up('form').down('box[id=imageshow]');
+        document.getElementById('imageshow').innerHTML = '<img style="width:150px;height:150px" src="' + 'http://bj-evetime.oss-cn-shenzhen.aliyuncs.com/userimage/QQ截图20160524143313.png' + '"/>';
+        box.setHidden(false) ;
     },
 
     onUpdateBtnClick : function(btn){

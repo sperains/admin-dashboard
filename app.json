@@ -123,6 +123,8 @@
             "${toolkit.name}/sass/var"
         ],
 
+
+
         /**
          * Comma-separated list of folders containing Sass rule files.
          *
@@ -272,7 +274,8 @@
     /**
      * Settings specific to production builds.
      */
-    "production": {
+     //5-31修改
+    /*"production": {
         "output": {
             "appCache": {
                 "enable": false,
@@ -286,7 +289,25 @@
         "cache": {
             "enable": false
         }
+    },*/
+    "production": {
+        "output": {
+            "appCache": {
+                "enable": true,
+                "path": "cache.appcache"
+            }
+        },
+        "loader": {
+            "cache": "${build.timestamp}"
+        },
+        "cache": {
+            "enable": true
+        },
+        "compressor": {
+            "type": "yui"
+        }
     },
+
     
     /**
      * Settings specific to testing builds.
@@ -389,12 +410,28 @@
      *      }
      *
      */
-    "output": {
-        "base": "${ext.dir}/build/examples/admin-dashboard/${build.id}",
-        "page": "../index.html",
-        "manifest": "../${build.id}.json",
+     //5-31修改
+    /*"output": {
+        //"base": "${ext.dir}/build/examples/admin-dashboard/${build.id}",
+        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "page": "index.html",
+        "manifest": "${build.id}.json",
         "appCache": {
             "enable": false
+        }
+    },*/
+
+    "output": {
+        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "page": "index.html",
+        "manifest": "${build.id}.json",
+        "js": "${build.id}/app.js",
+        "appCache": {
+            "enable": false
+        },
+        "resources": {
+            "path": "${build.id}/resources",
+            "shared": "resources"
         }
     },
 
@@ -413,9 +450,16 @@
     *       "deltas": "deltas"
     *   }
     */
-    "cache": {
+
+    //5-31修改
+    /*"cache": {
         "enable": false,
         "deltas": false
+    },*/
+
+    "cache": {
+        "enable": false,
+        "deltas": "${build.id}/deltas"
     },
 
     /**
@@ -445,12 +489,25 @@
      * Extra resources to be copied into the resource folder as specified in the "resources"
      * property of the "output" object. Folders specified in this list will be deeply copied.
      */
-    "resources": [
+/*    "resources": [
         {
             "path": "resources"
         },
         {
             "path": "${toolkit.name}/resources"
+        }
+    ],*/
+
+    "resources": [
+        {
+            "path": "resources",
+            "output": "shared"
+        },
+        {
+            "path": "${toolkit.name}/resources"
+        },
+        {
+            "path": "${build.id}/resources"
         }
     ],
 

@@ -36,6 +36,45 @@ Ext.define('Admin.view.setting.brand.AddBrand', {
                 {
                     fieldLabel : '品牌名称',
                     name : 'brandName'
+                },
+                {
+                    xtype: 'container',
+                    layout: 'hbox',
+                    margin : '0 0 10 0',
+                    defaultType: 'combobox',
+                    anchor : '90%',
+                    defaults : {
+                        editable:false
+                    },
+                    items : [
+                        {
+                            xtype: 'filefield',
+                            emptyText: '选择要上传的图片',
+                            fieldLabel: '图片路径',
+                            name: 'photo',
+                            buttonConfig: {
+                                text : '...'
+                            }
+                        },
+                        {
+                            xtype : 'button',
+                            text : '显示预览',
+                            itemId : 'displayImg',
+                            handler : 'onDisplayImgBtnClick'
+                        }
+                        
+                    ]
+                },
+                {
+                    xtype : 'box',  
+                    //style: 'margin:0px auto;border:1px solid #ccc; text-align:center;padding-top:20px;margin-bottom:10px',
+                    tag: 'div',
+                    width : 155,
+                    height : 155 ,
+                    style : 'margin : 0px auto;   border : 1px solid #ccc',
+                    id: 'imageshow',
+                    hidden : true,
+                    html: '暂无图片'
                 }
             ],
             buttons : [

@@ -39,6 +39,16 @@
           "routeId" :  "shop-business",
           "leaf": true,
           "items": null
+        },
+        {
+          "id": 13,
+          "text": "test",
+          "iconCls": "fa fa-at",
+          "parent_id": 1,
+          "viewType": "",
+          "routeId" :  "",
+          "leaf": true,
+          "items": null
         }
       ]
     },
