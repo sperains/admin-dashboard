@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "OK",
+  "data": [
+  	 {"id":"0","typeName":"中餐"},
+        {"id":"1","typeName":"西餐"},
+        {"id":"2","typeName":"火锅店"},
+        {"id":"3","typeName":"饮品店"},
+        {"id":"4","typeName":"日韩料理"},
+        {"id":"5","typeName":"烧烤"}
+    ]
+}

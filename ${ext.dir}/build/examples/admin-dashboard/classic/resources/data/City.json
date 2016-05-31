@@ -1,0 +1,5 @@
+[
+	{"cityId" : "1" , "cityName" : "武汉市" , "provinceId" : "1" },
+	{"cityId" : "2" , "cityName" : "襄阳市" , "provinceId" : "1"} ,
+	{"cityId" : "3" , "cityName" : "南阳市" , "provinceId" : "2"} 
+]
