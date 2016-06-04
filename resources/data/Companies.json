@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "OK",
+  "data": [
+  	 {"id":"0","companyName":"test1" ,"companyId" : "asdf-rqwe-rewr-tretr-asdsdad" ,"address":"天安门","createTime":"2016-06-01","delFlag":0},
+        {"id":"1","companyName":"test2" , "companyId" : "asdf-rqwe-rewr-tretr-asdsdaf","address":"天安门","createTime":"2016-06-01","delFlag":0},
+        {"id":"2","companyName":"test3" , "companyId" : "asdf-rqwe-rewr-tretr-asdsdagf","address":"天安门","createTime":"2016-06-01","delFlag":0},
+        {"id":"3","companyName":"test4" , "companyId" : "asdf-rqwe-rewr-tfsetr-asdsdad","address":"天安门","createTime":"2016-06-01","delFlag":0},
+        {"id":"4","companyName":"test5" ,"companyId" : "asdf-rqwe-r3wr-tretr-asdsdad","address":"天安门","createTime":"2016-06-01","delFlag":0},
+        {"id":"5","companyName":"test6" ,"companyId" : "asdf-rqwe-re3r-tretr-asdsdad","address":"天安门","createTime":"2016-06-01","delFlag":0}
+    ]
+}

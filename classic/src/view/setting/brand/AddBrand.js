@@ -53,7 +53,7 @@ Ext.define('Admin.view.setting.brand.AddBrand', {
                             fieldLabel: '图片路径',
                             name: 'photo',
                             buttonConfig: {
-                                text : '...'
+                                text : '浏览'
                             }
                         },
                         {

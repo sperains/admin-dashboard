@@ -2,27 +2,35 @@
  * Created by Rains
   on 2016-05-24.
  */
-Ext.define('Admin.view.shop.mananger.Shoplist', {
+Ext.define('Admin.view.setting.company.Companylist', {
 
     extend: 'Ext.grid.Panel',
+
     requires: [
         'Ext.grid.column.Action'
     ],
-    xtype: 'shoplist',
-    store: 'shop.Shops',
 
-    reference : 'shoplist',
-    stateful: true,
+    xtype: 'companylist',
+
+    itemId : 'companyList',
+
+    //store: 'setting.Companies',
+
+    reference : 'companylist',
+    stateful: true,                                         //列状态记忆功能
     collapsible: false,
-    multiSelect: true,
+    //multiSelect: true,                                //允许多选
     stateId: 'stateGrid',
-    selType: 'checkboxmodel',
+    //selType: 'checkboxmodel',               //多选模式
     viewConfig: {
         enableTextSelection: true,
         preserveScrollOnRefresh: true,
         preserveScrollOnReload: true
     },
 
+    bind : {
+        store : '{companies}'
+    },
 
     forceFit : true,
 
@@ -34,20 +42,8 @@ Ext.define('Admin.view.shop.mananger.Shoplist', {
               dock: 'top',
               items: [
                     {
-                            text: '批量启用',
-                            listeners : {
-                                click : 'onMulStartButtonClick'
-                            }
-                    }, 
-                    {
-                            text: '批量停用',
-                            listeners : {
-                                click : 'onMulStopButtonClick'
-                            }
-                    }, 
-                    {
-                            text: '添加门店',
-                            tooltip: '添加一个新的门店',
+                            text: '添加公司',
+                            tooltip: '添加一个新的品牌',
                             iconCls: 'fa fa-plus-square',
                             listeners : {
                                 click : 'onAddButtonClick'
@@ -99,53 +95,51 @@ Ext.define('Admin.view.shop.mananger.Shoplist', {
     initComponent: function () {
         var me = this;
 
+        me.cellEditing = new Ext.grid.plugin.CellEditing({
+            clicksToEdit: 2
+        });
+
+        me.plugins =  [me.cellEditing],
+
         me.columns = [
             {
                 xtype: 'rownumberer',
                 align : 'center'
             },
             {
-                text     : '门店名称',
+                text     : '公司名称',
                 sortable : false,
-                dataIndex: 'shopName' ,
-                align : 'center'
-            },
-            {
-                text     : '所属品牌',
-                sortable : false,
-                dataIndex: 'businessName',
-                align : 'center'
-            },
-            {
-                text     : '门店状态',
-                sortable : true,
+                dataIndex: 'companyName' ,
                 align : 'center',
-                dataIndex: 'auditStatus',
-                renderer : function(val){
-                    if(val == 0){
-                        return "审核中"
-                    }
-                    if(val == -1){
-                        return "审核失败"
-                    }
-                    if(val == 1) {
-                        return "审核通过"
-                    }
+                editor: {
+                    allowBlank: false
                 }
             },
             {
-                text     : '营业状态',
-                sortable : true,
+                text : '公司地址',
+                dataIndex : 'address',
                 align : 'center',
-                dataIndex: 'isOpen',
-                renderer : function(val){
-                    if(val == 1){
-                        return "正在营业"
-                    }else{
-                        return "未营业"
-                    }
-                 
+                editor : {
+                    allowBlank : true
                 }
+            },
+            {
+                text : '省份',
+                dataIndex : 'provinceId'
+            },
+            {
+                text : '城市',
+                dataIndex : 'cityId'
+            },
+            {
+                text : '区',
+                dataIndex : 'districtId'
+            },
+            {
+                text     : '创建时间',
+                sortable : true,
+                dataIndex: 'createTime',
+                align : 'center'
             },
             {
                 text : '操作',
@@ -153,40 +147,40 @@ Ext.define('Admin.view.shop.mananger.Shoplist', {
                 xtype: 'actioncolumn',
                 align : 'center',
                 width: 50,
-                items: [{
-                    iconCls: 'fa fa-edit',
-                    tooltip: '编辑',
-                    handler: 'onEditActionClick'
-                }, {
-                    getClass: function(v, meta, rec) {
-                        if (rec.get('auditStatus') == 1) {
-                            if(rec.get('isOpen')==1){
-                                return 'fa fa-stop';
-                            }else{
-                                return 'fa fa-play';
-                            }
-                        }else{
-                            return 'fa fa-minus'
-                        }
-                        
-                    },
-                    getTip: function(v, meta, rec) {
-                       if (rec.get('auditStatus') == 1) {
-                            if(rec.get('isOpen')==1){
-                                return '停用';
-                            }else{
-                                return '启用';
-                            }
-                        }else{
-                            return '删除'
-                        }
-                    },
-                    handler: 'onActionClick'
-                }
-
+                items: [
+                    {
+                        iconCls: 'fa fa-edit',
+                        tooltip: '编辑',
+                        handler: 'onUpdateBtnClick'
+                    }, 
+                    {
+                        iconCls: 'fa fa-minus',
+                        tooltip: '删除',
+                        handler: 'onDeleteBtnClick'
+                    }
                 ]
             }
         ];
+
+        me.listeners  = {
+            //itemdblclick : 'onUpdateBtnClick'
+            canceledit : function( editor, context, eOpts ){
+                console.log("cencel edit")
+                console.log("context :" + context);
+                console.log("editor:" + editor)
+            },
+
+            edit : function( editor, context, eOpts ){
+                console.log("edit");
+                console.log("context : " );
+                console.log(context);
+                //使用ajax请求保存数据到后台,保存成功之后前台提交修改.
+                context.record.commit();
+            }
+
+
+        },
+
         Ext.setGlyphFontFamily('FontAwesome');
         me.callParent();
     }

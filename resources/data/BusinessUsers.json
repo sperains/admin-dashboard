@@ -1,0 +1,131 @@
+ {
+ "success" : true,
+ "message": "加载商家用户列表成功",
+ "data" : [
+      {
+        "id": "145fdacb-0bad-46c7-a234-b5550f220e8d",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "234",
+        "name": "234",
+        "tel": "234",
+        "createTime": "2016-5-16 14:46:19",
+        "RowVersion": "2016-5-16 15:52:31",
+        "delFlag": "1"
+      },
+      {
+        "id": "1787e883-cf58-443d-8a89-7d88789b56af",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "123123",
+        "name": "123",
+        "tel": "123",
+        "createTime": "2016-5-16 14:49:56",
+        "RowVersion": "2016-5-16 15:58:46",
+        "delFlag": "1"
+      },
+      {
+        "id": "33d525ab-e6f8-403d-a1a7-8da1fccda460",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "234",
+        "name": "234",
+        "tel": "234",
+        "createTime": "2016-5-16 14:46:08",
+        "RowVersion": "2016-5-16 15:58:48",
+        "delFlag": "1"
+      },
+      {
+        "id": "505b618d-071d-4c5a-98d2-6d4353ff941a",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "123123",
+        "name": "123",
+        "tel": "123",
+        "createTime": "2016-5-16 16:03:38",
+        "RowVersion": "2016-5-16 16:03:42",
+        "delFlag": "1"
+      },
+      {
+        "id": "5a47a6d6-af65-4131-8c36-a08a2e1d14e1",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "123123",
+        "name": "123",
+        "tel": "123",
+        "createTime": "2016-5-16 15:59:23",
+        "RowVersion": "2016-5-16 15:59:26",
+        "delFlag": "1"
+      },
+      {
+        "id": "872d4eaa-afe2-4b53-b934-041e6a284cf8",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "123",
+        "name": "123",
+        "tel": "123",
+        "createTime": "2016-5-16 14:44:33",
+        "RowVersion": "2016-5-16 15:58:54",
+        "delFlag": "1"
+      },
+      {
+        "id": "a2111fb4-fdf0-4b63-9a8f-775bf2df38cb",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "bbbb",
+        "name": "bbb",
+        "tel": "bbb",
+        "createTime": "2016-5-16 14:41:15",
+        "RowVersion": "2016-5-16 15:58:56",
+        "delFlag": "1"
+      },
+      {
+        "id": "b7ba1642-a195-4572-aab6-755f17f33d3a",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "renjl",
+        "name": "renjl",
+        "tel": "1562355",
+        "createTime": "2016-5-19 11:45:52",
+        "RowVersion": "2016-5-19 14:47:17",
+        "delFlag": "1"
+      },
+      {
+        "id": "b97c5184-5dec-4239-b4cb-56bbb4c59648",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "123123",
+        "name": "123",
+        "tel": "123",
+        "createTime": "2016-5-16 16:45:53",
+        "RowVersion": "2016-5-19 11:45:28",
+        "delFlag": "1"
+      },
+      {
+        "id": "d015c837-fe1e-4048-9998-2ee78b6f31ee",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "admin",
+        "name": "Rains",
+        "departmentid": "1",
+        "positionid": "1",
+        "tel": "123456",
+        "createTime": "2016-4-27 21:17:43",
+        "RowVersion": "2016-5-16 15:54:14",
+        "delFlag": "0"
+      },
+      {
+        "id": "d015c837-fe1e-4048-9998-2ee78b6f31ef",
+        "companyId": "a67a10f5-3ec2-46c4-b3b4-ea0a23850b33",
+        "companyName" : "测试",
+        "userName": "mmcqxjd",
+        "name": "mmc",
+        "departmentid": "1",
+        "positionid": "1",
+        "tel": "789123",
+        "createTime": "2016-5-11 10:05:00",
+        "RowVersion": "2016-5-16 15:54:16",
+        "delFlag": "0"
+      }
+    ]
+}

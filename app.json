@@ -524,7 +524,8 @@
      * generated inside this directory must be kept intact for proper generation of
      * deltas between updates.
      */
-    "archivePath": "archive",
+    //"archivePath": "archive",
+    "archivePath": "archive/${build.id}",
 
     /**
      * Additional resources used during theme slicing operations

@@ -36,6 +36,10 @@ Ext.define('Admin.view.setting.brand.BrandsController', {
         
             if(form.isValid()){
                 
+                var values = form.getValues();
+               
+                values.imgPath = "http://dfs.com";
+                 console.log(values);
                 /*form.submit({
                     url: 'uploadImg',
                     waitMsg: 'Uploading your photo...',

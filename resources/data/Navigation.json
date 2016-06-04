@@ -137,10 +137,11 @@
       "children": [
         {
           "id": 51,
-          "text": "用户设置",
+          "text": "商家用户设置",
           "iconCls": null,
           "parent_id": 8,
-          "className": "members",
+          "viewType": "setting-businessusers",
+          "routeId" : "setting-businessusers",
           "leaf": true,
           "items": null
         },

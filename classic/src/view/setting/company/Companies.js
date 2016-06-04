@@ -5,22 +5,31 @@ Ext.define('Admin.view.setting.company.Companies', {
     extend: 'Ext.Container',
 
     requires: [
-	//'Admin.view.shop.business.BusinessController'
+        'Admin.view.setting.company.CompaniesController' ,'Admin.view.setting.company.CompanyModel'
     ],
 
     xtype: 'setting-company',
 
 
-    viewModel: {
-        //type: 'business'
+    viewModel: 'setting-company',
+
+    controller : 'setting-company',
+
+    margin : '20',
+
+    width : '100%',
+    height : '100%',
+
+    border: 1,
+
+    style: {
+        'background-color': 'white'
     },
 
-    //controller: 'business',
-
-
-    html : '公司设置',
 
     items: [
-        /* include child components here */
+        {   
+            xtype : 'companylist'
+        }
     ]
 });

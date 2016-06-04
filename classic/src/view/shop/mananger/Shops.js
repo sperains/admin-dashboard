@@ -9,7 +9,7 @@ Ext.define('Admin.view.shop.mananger.Shops', {
     controller: 'shop-mananger',
 
     requires : [
-        'Admin.view.shop.mananger.Shoplist' , 'Admin.view.shop.mananger.Addshop' , 'Ext.form.FieldSet' 
+        'Admin.view.shop.mananger.Shoplist' , 'Admin.view.shop.mananger.Addshop' , 'Ext.form.FieldSet' ,'Ext.form.FieldContainer'
     ],
 
     layout : 'fit',
@@ -23,13 +23,16 @@ Ext.define('Admin.view.shop.mananger.Shops', {
         title: '门店设置',
         iconCls:'fa fa-home',
         items : [
-            {
+            /*{
                 xtype : 'container',
                 items : [
                     {
                         xtype : 'shoplist'
                     }
                 ]
+            },*/
+            {
+                xtype : 'shoplist'
             }
         ]
     }, {

@@ -4,7 +4,7 @@ Ext.define('Admin.Application', {
     name: 'Admin',
 
     stores: [
-        'NavigationTree' , 'shop.Shops' ,'setting.Brands'
+        'NavigationTree' , 'shop.Shops' ,'setting.Brands' 
     ],
 
     defaultToken : 'dashboard',

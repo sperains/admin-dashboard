@@ -22,13 +22,10 @@ Ext.define('Admin.view.setting.brand.Brands', {
     width : '100%',
     height : '100%',
 
-    title : 'brand',
-
-    border: 1,
     style: {
         'background-color': 'white'
-    },
 
+    },
     items: [
         {   
             xtype : 'brandlist'

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "message": "加载成功",
+  "data": [
+    {
+      "userId": "d015c837-fe1e-4048-9998-2ee78b6f31ee",
+      "brandId": "2f05cd3d-132a-4443-81e7-6e0bdc86cd08",
+      "branchId": "5fda747e-e014-4108-8406-79abb1f657ed"
+    },
+    {
+      "userId": "d015c837-fe1e-4048-9998-2ee78b6f31ee",
+      "brandId": "2f05cd3d-132a-4443-81e7-6e0bdc86cd08",
+      "branchId": "4454788f-c1fc-4f90-9772-001b91cfea22"
+    }
+  ]
+}

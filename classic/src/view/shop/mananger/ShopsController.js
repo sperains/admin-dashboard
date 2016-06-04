@@ -25,6 +25,16 @@ Ext.define('Admin.view.shop.mananger.ShopsController', {
             }
     },
 
+    onEditActionClick : function(grid, rowIndex, colIndex) {
+        var rec = grid.getStore().getAt(rowIndex);
+        console.log(rec);
+        var win = Ext.createWidget('shop-add');
+        win.setTitle("修改门店");
+        var form = win.down('form');
+        form.loadRecord(rec);
+    },
+
+
     onStart : function(rec){
         console.log("start" + rec.getId());
     },
@@ -66,7 +76,7 @@ Ext.define('Admin.view.shop.mananger.ShopsController', {
 
     onAddShopSubmit : function(btn){
         var form = btn.up('form').getForm();
-        console.log(this.getView());
+        console.log(form.getValues());
         var shoplist = Ext.ComponentQuery.query('shoplist')[0],
                 store = shoplist.getStore();
 

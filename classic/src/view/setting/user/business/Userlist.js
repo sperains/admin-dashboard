@@ -2,7 +2,7 @@
  * Created by Rains
   on 2016-05-24.
  */
-Ext.define('Admin.view.setting.brand.Brandlist', {
+Ext.define('Admin.view.setting.user.business.Userlist', {
 
     extend: 'Ext.grid.Panel',
 
@@ -10,11 +10,12 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
         'Ext.grid.column.Action'
     ],
 
-    xtype: 'brandlist',
+    xtype: 'businessuserlist',
 
-    store: 'setting.Brands',
+    itemId : 'businessUserList',
 
-    reference : 'brandlist',
+
+    reference : 'businessUserList',
     stateful: true,                                         //列状态记忆功能
     collapsible: false,
     //multiSelect: true,                                //允许多选
@@ -26,6 +27,9 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
         preserveScrollOnReload: true
     },
 
+    bind : {
+        store : '{users}'
+    },
 
     forceFit : true,
 
@@ -37,11 +41,19 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
               dock: 'top',
               items: [
                     {
-                            text: '添加品牌',
+                            text: '添加用户',
                             tooltip: '添加一个新的品牌',
                             iconCls: 'fa fa-plus-square',
                             listeners : {
-                                click : 'onAddButtonClick'
+                                click : 'onAddUserBtnClick'
+                            }
+                    }, 
+                    {
+                            text: '设置权限',
+                            tooltip: '门店设置',
+                            iconCls: 'fa fa-key',
+                            listeners : {
+                                click : 'onAddPermissionBtnClick'
                             }
                     }, 
                     //'-', 
@@ -64,20 +76,13 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
                             xtype : 'textfield',
                             emptyText : '搜索',
                             enableKeyEvents : true ,
-                            width : 80,
+                            width : 160,
                             listeners : {
                                 keypress : function(field, e , eOpts){
                                     if(e.getKey() === 13 ){
                                         console.log("enter press")
                                     }
                                 }
-                                /*render : function(){
-                                    var font=document.createElement("font");
-                                    font.setAttribute("color","red");
-                                    var redStar=document.createTextNode('*');
-                                    font.appendChild(redStar);    
-                                    Ext.getDom('search').appendChild(font);
-                                }*/
                             }
                     }
                             
@@ -102,17 +107,31 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
                 align : 'center'
             },
             {
-                text     : '品牌名称',
+                text     : '用户名',
                 sortable : false,
-                dataIndex: 'brandName' ,
+                dataIndex: 'userName' ,
                 align : 'center',
                 editor: {
                     allowBlank: false
                 }
             },
             {
-                text : 'logoUrl',
-                dataIndex : 'imgPath'
+                text : '所属公司',
+                dataIndex : 'companyName',
+                align : 'center',
+                editor : {
+                    allowBlank : true
+                }
+            },
+            {
+                text : '注册人',
+                dataIndex : 'name',
+                align : 'center'
+            },
+            {
+                text : '联系方式',
+                dataIndex : 'tel',
+                align : 'center'
             },
             {
                 text     : '创建时间',
@@ -121,24 +140,23 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
                 align : 'center'
             },
             {
-                text : '操作',
-                sortable: false,
-                xtype: 'actioncolumn',
+                xtype: 'widgetcolumn',
                 align : 'center',
-                width: 50,
-                items: [
-                    {
-                        iconCls: 'fa fa-edit',
-                        tooltip: '编辑',
-                        handler: 'onUpdateBtnClick'
-                    }, 
-                    {
-                        iconCls: 'fa fa-minus',
-                        tooltip: '删除',
-                        handler: 'onDeleteBtnClick'
-                    }
-                ]
-            }
+                widget: {
+                    xtype: 'button',
+                    text: '门店设置',
+                    handler: 'onChooseShopsClick'
+                }
+            }/*,
+            {
+                xtype: 'widgetcolumn',
+                align : 'center',
+                widget: {
+                    xtype: 'button',
+                    text: '删除',
+                    handler: 'onRemoveShopsClick'
+                }
+            }*/
         ];
 
         me.listeners  = {
@@ -150,17 +168,11 @@ Ext.define('Admin.view.setting.brand.Brandlist', {
             },
 
             edit : function( editor, context, eOpts ){
-
-                var confirm = Ext.Msg.confirm('提示信息', '是否确认修改' , function(choice){
-                    if(choice === 'yes'){
-                        console.log("edit");
-                        console.log("context : " );
-                        console.log(context);
-                        //使用ajax请求保存数据到后台,保存成功之后前台提交修改.
-                        context.record.commit();
-                    }
-                });
-                
+                console.log("edit");
+                console.log("context : " );
+                console.log(context);
+                //使用ajax请求保存数据到后台,保存成功之后前台提交修改.
+                context.record.commit();
             }
 
 

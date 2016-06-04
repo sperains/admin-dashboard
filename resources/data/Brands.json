@@ -2,11 +2,11 @@
   "success": true,
   "message": "OK",
   "data": [
-  	 {"id":"0","brandName":"中餐" ,"brandId" : "asdf-rqwe-rewr-tretr-asdsdad"},
-        {"id":"1","brandName":"西餐" , "brandId" : "asdf-rqwe-rewr-tretr-asdsdaf"},
-        {"id":"2","brandName":"火锅店" , "brandId" : "asdf-rqwe-rewr-tretr-asdsdagf"},
-        {"id":"3","brandName":"饮品店" , "brandId" : "asdf-rqwe-rewr-tfsetr-asdsdad"},
-        {"id":"4","brandName":"日韩料理" ,"brandId" : "asdf-rqwe-r3wr-tretr-asdsdad"},
-        {"id":"5","brandName":"烧烤" ,"brandId" : "asdf-rqwe-re3r-tretr-asdsdad"}
+  	 {"id":"0","brandName":"最爱妈妈菜" ,"brandId" : "asdf-rqwe-rewr-tretr-asdsdad"},
+        {"id":"1","brandName":"创业咖啡" , "brandId" : "asdf-rqwe-rewr-tretr-asdsdaf"},
+        {"id":"2","brandName":"黄记煌" , "brandId" : "asdf-rqwe-rewr-tretr-asdsdagf"},
+        {"id":"3","brandName":"星巴克" , "brandId" : "asdf-rqwe-rewr-tfsetr-asdsdad"},
+        {"id":"4","brandName":"可口可乐" ,"brandId" : "asdf-rqwe-r3wr-tretr-asdsdad"},
+        {"id":"5","brandName":"何锦棠茶馆" ,"brandId" : "asdf-rqwe-re3r-tretr-asdsdad"}
     ]
 }

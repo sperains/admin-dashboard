@@ -7,7 +7,7 @@ Ext.define('Admin.view.shop.mananger.Addshop', {
     itemId : 'addShopForm',
 
     requires: [
-        'Ext.form.field.ComboBox' ,'Ext.form.field.Display' ,'Ext.form.field.Time' ,'Admin.store.shop.ShopTypes' 
+        'Ext.form.field.ComboBox' ,'Ext.form.field.Display' ,'Ext.form.field.Time' ,'Admin.store.shop.ShopTypes' ,'Admin.view.common.AreaCombobox'
     ],
 
     autoShow : true,
@@ -44,86 +44,7 @@ Ext.define('Admin.view.shop.mananger.Addshop', {
                     },
                     items : [
                         {
-                            xtype: 'container',
-                            layout: 'hbox',
-                            margin : '0 0 10 0',
-                            defaultType: 'combobox',
-                            anchor : '90%',
-                            defaults : {
-                                editable:false
-                            },
-                            items : [
-                                { 
-                                    fieldLabel : '地区' , 
-                                    flex: 2 , 
-                                    name :'provinceId' ,
-                                    emptyText: '省' ,
-                                    store : {
-                                        type : 'provinces'
-                                    },
-                                    displayField : 'provinceName',
-                                    valueField : 'provinceId',
-                                    queryMode: 'local',
-                                    listeners : {
-                                        select : function(e){
-                                            var provinceId = this.getValue() ;
-                                            var cityCombo = this.nextSibling('combobox[name=cityId]');
-                                            cityCombo.readOnly = false;
-                                            cityCombo.clearValue();
-                                            cityCombo.getStore().filter("provinceId" , provinceId);
-
-                                        }
-                                    }
-                                },
-                                { 
-                                    flex: 1 , 
-                                    margin : '0 0 0 5' , 
-                                    name : 'cityId' ,
-                                    emptyText: '市' ,
-                                    store : {
-                                        type : 'cities'
-                                    },
-                                    displayField : 'cityName',
-                                    valueField : 'cityId',
-                                    queryMode: 'local',
-                                    listeners : {
-                                        focus : function(combo){
-                                            var provinceId = combo.previousSibling('combobox[name=provinceId]').getValue();
-                                            if(!provinceId){
-                                                this.readOnly = true
-                                            }
-                                        },
-                                        select : function(e){
-                                            var cityId = this.getValue() ;
-                                            var districtCombo = this.nextSibling('combobox[name=districtId]');
-                                            districtCombo.readOnly = false;
-                                            districtCombo.clearValue();
-                                            districtCombo.getStore().filter("cityId" , cityId);
-
-                                        }
-                                    }
-                                },
-                                { 
-                                    flex: 1 , 
-                                    margin : '0 0 0 5' , 
-                                    name : 'districtId' , 
-                                    emptyText: '区' ,
-                                    store : {
-                                        type : 'districts'
-                                    },
-                                    displayField : 'districtName',
-                                    valueField : 'districtId',
-                                    queryMode: 'local',
-                                    listeners : {
-                                        focus : function(combo){
-                                            var cityId = combo.previousSibling('combobox[name=cityId]').getValue();
-                                            if(!cityId){
-                                                this.readOnly = true
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            xtype : 'areacombobox'
                         },
                         {
                             name: 'address',
@@ -151,12 +72,20 @@ Ext.define('Admin.view.shop.mananger.Addshop', {
                         },
 
                         {
-                            name: 'brandName',
-                            fieldLabel: '所属品牌',
-                            emptyText: 'xxx',
+                            xtype : 'combobox',
+                            fieldLabel : '所属品牌',
+                            name : 'brandId',
+                            emptyText: '请选择所属品牌',
+                            combineErrors: true,
                             anchor : '60%',
                             allowBlank: false,
-                            blankText :'品牌名称不能为空'
+                            store : {
+                                type : 'setting.brands'
+                            },
+                            displayField : 'brandName',
+                            valueField : 'brandId',
+                            queryMode: 'local',
+                            blankText :'品牌不能为空'
                         },
                         {
                             xtype : 'combobox',
@@ -168,11 +97,6 @@ Ext.define('Admin.view.shop.mananger.Addshop', {
                             allowBlank: false,
                             store : {
                                 type : 'shop.shoptypes'
-                                /*filters : [
-                                    function(item){
-                                        return item.id = 1 
-                                    }
-                                ]*/
                             },
                             displayField : 'typeName',
                             valueField : 'id',
